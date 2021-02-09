@@ -11,10 +11,8 @@ async function getMessagesFromServer()
   {
     var messageData = response[i];
 
-    var message = `<div class="message">
-      <div class="message-name">${messageData.Name} </div>
-      <div class="message-text">${messageData.Message}</div>
-    </div>`
+
+    var message = `<div class="message"><div class="message-name">${messageData.Name} </div><div class="message-text">${messageData.Message}</div></div>`
     allMessagesHTML = allMessagesHTML + message;
   }
   messages.innerHTML = allMessagesHTML;
@@ -33,6 +31,7 @@ async function sendUserMessage()
       alert("Ты должен ввести сообщение!");
       return;
     }
+
     await fetch("https://fchatiavi.herokuapp.com/send/ilya/",{
       method: "POST",
       body: JSON.stringify({
