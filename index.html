@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ChatBox</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <h1 class="name">ChatBox</h1>
+
+
+      <div class="message-wrapper">
+        <div class="message">
+          <div class="message-name">Test1</div>
+          <div class="message-text">test test test</div>
+        </div>
+        <div class="message">
+          <div class="message-name">Test2</div>
+          <div class="message-text">test test test</div>
+        </div>
+        <div class="message">
+          <div class="message-name">Test3</div>
+          <div class="message-text">test test test</div>
+        </div>
+      </div>
+
+
+      <div class="input-wrapper">
+        <div class="row">
+
+
+          <div class="col-md-2">
+            <span>Nick</span>
+            <textarea id="nickname-input" class="name-send-area"></textarea>
+          </div>
+          <div class="col-md-6">
+            <span>Message</span>
+            <textarea id="message-input" class="text-send-area"></textarea>
+          </div>
+          <div class="col-md-4 d-grid">
+            <button id="send-btn" class="btn btn-secondary btn-lg" type="button">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+  <script type="text/javascript"src="main.js">
+
+  </script>
+</html>
