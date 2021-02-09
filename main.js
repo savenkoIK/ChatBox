@@ -16,8 +16,8 @@ async function getMessagesFromServer()
 }
 async function sendUserMessage()
 {
-    var userNickname = documenr.getElementById("nickname-input").value;
-    var userNickname = documenr.getElementById("message-input").value;
+    var userNickname = document.getElementById("nickname-input").value;
+    var userNickname = document.getElementById("message-input").value;
     if(userNickname.length === 0)
     {
       alert("Ты должен ввести имя!");
