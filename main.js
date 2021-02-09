@@ -10,7 +10,8 @@ async function getMessagesFromServer()
   for(var i = 0; i < response.length; i++)
   {
     var messageData = response[i];
-    var message = "<div class='message'><div class='message-name'> ${messageData.Name} </div><div class='message-text'>${messageData.Message}</div></div>"
+
+    var message = `<div class="message"><div class="message-name">${messageData.Name} </div><div class="message-text">${messageData.Message}</div></div>";`
   }
   messages.innerHTML = message;
 }
