@@ -4,27 +4,21 @@ sendButton.addEventListener("click",sendUserMessage);
 start();
 
 function start() {
+  getMessagesFromServer()
   setInterval(getMessagesFromServer,2000);
-  scrollToEnd();
 }
+var lastMessages = [];
 
 async function getMessagesFromServer()
 {
   var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=1000000");
   response = await response.json();
-  var allMessagesHTML = "";
-  for(var i = 0; i < response.length; i++)
+  var messagesHTML = fromMessagesHTML(response);
+  messages.innerHTML = messagesHTML;
+  if (lastMessages.length < response.length)
   {
-    var messageData = response[i];
-
-
-    var message = `<div class="message">
-      <div class="message-name">${messageData.Name} </div><div class="message-text">${messageData.Message}</div></div>`
-      allMessagesHTML = allMessagesHTML + message;
-
+    scrollToEnd();
   }
-  messages.innerHTML = allMessagesHTML;
-
 }
 async function sendUserMessage()
 {
@@ -50,6 +44,19 @@ async function sendUserMessage()
     });
     getMessagesFromServer();
     scrollToEnd();
+}
+
+function fromMessagesHTML(messages) {
+  var allMessagesHTML = "";
+  for(var i = 0; i < messages.length; i++)
+  {
+    var messageData = messages[i];
+    var message = `<div class="message">
+      <div class="message-name">${messageData.Name} </div><div class="message-text">${messageData.Message}</div></div>`
+      allMessagesHTML = allMessagesHTML + message;
+
+  }
+  return allMessagesHTML;
 }
 
 function scrollToEnd() {
