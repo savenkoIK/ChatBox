@@ -30,6 +30,7 @@ async function getMessagesFromServer()
 }
 async function sendUserMessage()
 {
+    var roomname = roomNameInput.value;
     var userNickname = document.getElementById("nickname-input").value;
     var userMessage = document.getElementById("message-input").value;
     if(userNickname.length === 0)
@@ -43,7 +44,7 @@ async function sendUserMessage()
       return;
     }
 
-    await fetch("https://fchatiavi.herokuapp.com/send/ilya/",{
+    await fetch(`https://fchatiavi.herokuapp.com/send/${roomname}/`,{
       method: "POST",
       body: JSON.stringify({
         Name: userNickname,
