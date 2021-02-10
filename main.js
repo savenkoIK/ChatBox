@@ -1,5 +1,6 @@
 var messages = document.getElementById("messages");
 var sendButton = document.getElementById("send-btn");
+var roomNameInput = document.getElementById("roomname-input");
 sendButton.addEventListener("click",sendUserMessage);
 start();
 
@@ -11,7 +12,8 @@ var lastMessages = [];
 
 async function getMessagesFromServer()
 {
-  var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=1000000");
+  var roomname = roomNameInput.value;
+  var response = await fetch(`https://fchatiavi.herokuapp.com/get/${roomname}/?offset=0&limit=1000000`);
   response = await response.json();
   if (response == null)
   {
