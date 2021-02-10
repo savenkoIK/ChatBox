@@ -1,7 +1,13 @@
 var messages = document.getElementById("messages");
 var sendButton = document.getElementById("send-btn");
 sendButton.addEventListener("click",sendUserMessage);
-getMessagesFromServer();
+start();
+
+function start() {
+  setInterval(getMessagesFromServer,2000);
+  scrollToEnd();
+}
+
 async function getMessagesFromServer()
 {
   var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=1000000");
@@ -18,6 +24,7 @@ async function getMessagesFromServer()
 
   }
   messages.innerHTML = allMessagesHTML;
+
 }
 async function sendUserMessage()
 {
@@ -42,4 +49,9 @@ async function sendUserMessage()
       })
     });
     getMessagesFromServer();
+    scrollToEnd();
+}
+
+function scrollToEnd() {
+  messages.scrollTop = messages.scrollHeight;
 }
