@@ -4,7 +4,7 @@ sendButton.addEventListener("click",sendUserMessage);
 getMessagesFromServer();
 async function getMessagesFromServer()
 {
-  var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=10");
+  var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=1000000");
   response = await response.json();
   var allMessagesHTML = "";
   for(var i = 0; i < response.length; i++)
