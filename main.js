@@ -13,12 +13,18 @@ async function getMessagesFromServer()
 {
   var response = await fetch("https://fchatiavi.herokuapp.com/get/ilya/?offset=0&limit=1000000");
   response = await response.json();
+  if (response == null)
+  {
+    messages.innerHTML = "No messages";
+    return;
+  }
   var messagesHTML = fromMessagesHTML(response);
   messages.innerHTML = messagesHTML;
   if (lastMessages.length < response.length)
   {
     scrollToEnd();
   }
+  lastMessages = response;
 }
 async function sendUserMessage()
 {
@@ -43,7 +49,6 @@ async function sendUserMessage()
       })
     });
     getMessagesFromServer();
-    scrollToEnd();
 }
 
 function fromMessagesHTML(messages) {
