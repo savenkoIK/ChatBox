@@ -12,7 +12,7 @@
   border: 1px solid #d2d5d9;
   border-radius: 10px;
   padding: 10px;
-  height: 80vh;
+  height: 75vh;
   overflow:auto;
 }
 
@@ -34,7 +34,7 @@
   border-radius: 10px;
   width: 100%;
   resize: none;
-  height: 70%;
+  height: 40%;
 }
 
 .name-send-area{
@@ -42,5 +42,13 @@
   border-radius: 10px;
   width: 100%;
   resize: none;
-  height: 70%;
+  height: 40%;
+}
+
+.room-send-area{
+  border: 1px solid #d2d5d9;
+  border-radius: 10px;
+  width: 100%;
+  resize: none;
+  height: 40%;
 }
